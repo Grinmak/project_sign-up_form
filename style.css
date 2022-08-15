@@ -37,6 +37,7 @@ background: white;
 display:flex;
 align-items: center;
 margin-top: 90px;
+padding: 30px 0;
 }
 
 form {
@@ -76,11 +77,13 @@ label {
 input {
     appearance: none;
     -webkit-appearance: none;
-    height: 1.5rem;
+    height: 2rem;
     border: 2px solid var(--border-color);
     border-radius: 10px;
     outline-style: none;
-
+    padding: 0 10%;
+    /* font-family: var(--logo-font); */
+    font:var(--right-side-font);
 }
 
 :root {
@@ -94,10 +97,13 @@ input {
     --right-side-font: 'Aboreto', sans-serif;
     --link-visited: rgb(157, 112, 39);
     --box-shadow: 10px 10px 25px 4px rgba(14, 119, 238, 0.1);
+    --button-hover-shadow: 2px 2px 5px 4px rgb(157, 112, 39,0.3);
+    --input-border: 2px solid var(--border-color);
 }
 
 input:focus {
-    border-color: var(--border-focus-color);
+    border-color: var(--link-visited);
+    box-shadow: var(--button-hover-shadow);
 }
 
 img {
@@ -136,12 +142,14 @@ img {
 
 .logo>p {
 
-    padding-left: calc(12vw + 40px);
+    padding-left: calc(14vw + 40px);
     padding-top: 25px;
     font-family: var(--logo-font);
     font-size: var(--logo-font-size);
     letter-spacing: 2px;
     word-spacing: 10px;
+    width: 100px;
+    
 }
 
 .intro, .createAccount {
@@ -166,35 +174,21 @@ section>h2 {
     
 }
 
-form>div{
-    /* border: 2px solid pink; */
-}
-
 .row>p {
     font-family: var(--right-side-font);
     font-weight: 600;
 }
-/* .rightSide>div{
-    border: 2px solid pink; 
-} */
 
 .intro {
     align-items: flex-end;
-    
     
 }
 a {
     outline: none;
     text-decoration: none;
-}
-
-a {
     color: var(--label-color)
 }
 
-/* a:visited {
-    color: var(--link-visited);
-} */
 a:hover {
     text-decoration: underline;
 }
@@ -215,6 +209,29 @@ button {
 button:hover {
     background-color: white;
     color: var(--link-visited);
-    box-shadow: 2px 2px 5px 4px rgb(157, 112, 39,0.3);
+    box-shadow: var(--button-hover-shadow);
     font-weight: 800;
 }
+
+/* input[type='password']:invalid:focus {
+    border: 1px solid red;
+} */
+
+.error {
+    border: 1px solid red;
+}
+
+input[type='text']:valid, input[type='email']:valid, input[type='tel']:valid  {
+    background: url('success.svg') no-repeat;
+    background-size: 1.2rem;
+    background-position: 90%;
+}
+
+input.success:valid {
+    background: url('success.svg') no-repeat;
+    background-size: 1.2rem;
+    background-position: 90%;
+    border: var(--input-border);
+}
+
+
