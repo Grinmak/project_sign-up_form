@@ -234,4 +234,10 @@ input.success:valid {
     border: var(--input-border);
 }
 
+.errorMessage {
 
+    height: 2rem;
+    color: red;
+    font-size: 1rem;
+    padding: 10px 0 0 10px;
+}

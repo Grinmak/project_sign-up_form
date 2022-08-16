@@ -1,5 +1,6 @@
 const pass = document.getElementById('pass');
 const passCheck = document. getElementById('confirmPass');
+const error = document.querySelector('#pass + span.errorMessage');
 
 let password ='';
 let confirmPassword = '';
@@ -12,7 +13,7 @@ passCheck.addEventListener('keydown', passEdit);
 form.addEventListener('submit', preventSubmit);
 
 function customErrorMesagge (event){
-
+    errorMessage();
     classTogle();
     if(event.data !== null){
         password += event.data;
@@ -67,7 +68,13 @@ function preventSubmit (event) {
     if(passCheck.className !== 'success') {
         passCheck.setCustomValidity('Passwords doesn\'t match');
         event.preventDefault();
-
-
     };
 }
+
+function errorMessage () {
+    if(!pass.validity.valid){
+        error.textContent = 'at least 8 characters, one digit, one upper case letter';
+    }else error.textContent = '';
+        
+    
+};
